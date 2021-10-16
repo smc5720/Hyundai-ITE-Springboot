@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{common/layout::setContent(~{this::content})}">
+	<th:block th:fragment="content">
+		<div class="card m-2">
+			<div class="card-header">텍스트 및 자바스크립트 코드 삽입</div>
+			<div class="card-body">
+				<a href="text" class="btn btn-info btn-sm">Text</a> <a
+					href="javascript" class="btn btn-info btn-sm">JavaScript</a>
+			</div>
+		</div>
+
+		<div class="card m-2">
+			<div class="card-header">표준 표현식</div>
+			<div class="card-body">
+				<a href="variableExpressions" class="btn btn-info btn-sm">Variable
+					Expressions</a> <a href="selectionVariableExpressions"
+					class="btn btn-info btn-sm">Selection Variable Expressions</a> <a
+					href="messageExpressions" class="btn btn-info btn-sm">Message
+					Expressions</a> <a
+					href="linkUrlExpressions/t1/detail?productId=p1&pageNo=1"
+					class="btn btn-info btn-sm">Link URL Expressions</a>
+			</div>
+		</div>
+	</th:block>
+</th:block>
+</html>
