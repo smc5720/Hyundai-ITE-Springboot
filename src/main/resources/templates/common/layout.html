@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <th:block th:fragment="setContent(content)">
 	<head>
 <meta charset="UTF-8" />
@@ -22,12 +23,22 @@
 					class="d-inline-block align-top"> Spring Boot
 				</a>
 				<div>
+					<!--/*
 					<div th:if="${session.sessionMid == null}">
 						<a th:href="@{/}" class="btn btn-info btn-sm">로그인</a>
 					</div>
-					<div th:if="${session.sessionMid != null}">
+					<div th:if="${session.sessionMid == null}">
 						<span>User: [[${session.sessionMid}]]</span> <a th:href="@{/}"
 							class="btn btn-info btn-sm ml-2">로그아웃</a>
+					</div>
+					*/-->
+
+					<div sec:authorize="!isAuthenticated()">
+						<a th:href="@{/security/loginForm}" class="btn btn-info btn-sm">로그인</a>
+					</div>
+					<div sec:authorize="isAuthenticated()">
+						<span>User: <span sec:authentication="name"></span></span> <a
+							th:href="@{/logout}" class="btn btn-info btn-sm ml-2">로그아웃</a>
 					</div>
 				</div>
 			</nav>
